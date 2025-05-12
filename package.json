@@ -1,38 +1,48 @@
 {
-  "name": "qa-automation-framework",
+  "name": "enhanced-qa-automation-framework",
   "version": "1.0.0",
-  "description": "QA Automation Framework with Playwright and K6",
+  "description": "Enhanced QA Automation Framework with Playwright and K6",
   "scripts": {
-    "test:api": "playwright test automation-tests",
-    "test:api:dev": "ENV=dev playwright test automation-tests",
-    "test:api:stg": "ENV=stg playwright test automation-tests", 
-    "test:api:prod": "ENV=prod playwright test automation-tests",
-    "test:stress": "k6 run",
-    "test:stress:dev": "ENV=dev k6 run",
-    "test:stress:stg": "ENV=stg k6 run",
-    "test:stress:prod": "ENV=prod k6 run",
+    "test": "playwright test",
+    "test:api": "playwright test tests/api",
+    "test:api:dev": "ENV=dev playwright test tests/api",
+    "test:api:stg": "ENV=stg playwright test tests/api",
+    "test:api:prod": "ENV=prod playwright test tests/api",
     "test:smoke": "playwright test --grep @smoke",
     "test:regression": "playwright test --grep @regression",
-    "report": "allure generate ./allure-results --clean && allure open ./allure-report",
+    "test:parallel": "playwright test --workers=4",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report",
+    "test:ui": "playwright test --ui",
     "lint": "eslint . --ext .ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "docs": "typedoc",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@playwright/test": "^1.40.0",
-    "axios": "^1.6.0",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "@types/k6": "^0.45.0",
-    "@types/node": "^20.9.0",
-    "@typescript-eslint/eslint-plugin": "^6.11.0",
-    "@typescript-eslint/parser": "^6.11.0",
-    "allure-playwright": "^2.8.1",
-    "dotenv": "^16.3.1",
-    "eslint": "^8.53.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "allure-playwright": "^2.9.2",
+    "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "husky": "^8.0.3",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "typescript": "^5.3.2",
+    "typedoc": "^0.25.3"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
