@@ -1,0 +1,7 @@
+{
+  "title": "Updated PAR Title",
+  "description": "This PAR description has been updated",
+  "status": "in-progress",
+  "priority": "high",
+  "tags": ["test", "api", "automation", "updated"]
+}

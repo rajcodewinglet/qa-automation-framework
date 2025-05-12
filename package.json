@@ -1,0 +1,38 @@
+{
+  "name": "qa-automation-framework",
+  "version": "1.0.0",
+  "description": "QA Automation Framework with Playwright and K6",
+  "scripts": {
+    "test:api": "playwright test automation-tests",
+    "test:api:dev": "ENV=dev playwright test automation-tests",
+    "test:api:stg": "ENV=stg playwright test automation-tests", 
+    "test:api:prod": "ENV=prod playwright test automation-tests",
+    "test:stress": "k6 run",
+    "test:stress:dev": "ENV=dev k6 run",
+    "test:stress:stg": "ENV=stg k6 run",
+    "test:stress:prod": "ENV=prod k6 run",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "report": "allure generate ./allure-results --clean && allure open ./allure-report",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@playwright/test": "^1.40.0",
+    "axios": "^1.6.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/k6": "^0.45.0",
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
+    "allure-playwright": "^2.8.1",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2"
+  }
+}

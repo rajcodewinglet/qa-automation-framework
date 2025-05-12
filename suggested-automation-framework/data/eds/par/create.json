@@ -1,0 +1,15 @@
+{
+  "parId": null,
+  "title": "Test PAR",
+  "description": "This is a test PAR for API testing",
+  "status": "draft",
+  "type": "standard",
+  "priority": "medium",
+  "assignedTo": "user123",
+  "dueDate": "2025-12-31T23:59:59Z",
+  "tags": ["test", "api", "automation"],
+  "metadata": {
+    "source": "api-test",
+    "createdBy": "automation-framework"
+  }
+}

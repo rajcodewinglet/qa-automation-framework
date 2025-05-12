@@ -1,0 +1,44 @@
+{
+  "name": "automation-tests",
+  "version": "1.0.0",
+  "description": "API Automation Test Framework using Playwright",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:dev": "ENV=dev playwright test",
+    "test:stg": "ENV=stg playwright test",
+    "test:prod": "ENV=prod playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:eds": "playwright test tests/eds",
+    "test:ai-ems": "playwright test tests/ai-ems",
+    "test:document-processing": "playwright test tests/document-processing",
+    "test:var": "playwright test tests/var",
+    "test:super-admin": "playwright test tests/super-admin",
+    "test:workforce-agent": "playwright test tests/workforce-agent",
+    "report": "npx allure generate ./allure-results --clean && npx allure open ./allure-report",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "playwright",
+    "api",
+    "testing",
+    "automation",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.9.0",
+    "allure-playwright": "^2.8.1",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.53.0",
+    "eslint-plugin-playwright": "^0.18.0",
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "winston": "^3.11.0"
+  }
+}
