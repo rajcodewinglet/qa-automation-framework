@@ -6,7 +6,7 @@ dotenv.config();
 
 const ENV = process.env.ENV || 'dev';
 const config: PlaywrightTestConfig = {
-  testDir: './tests',
+  testDir: './automation-tests',
   timeout: 60000,
   expect: {
     timeout: 10000,
@@ -28,7 +28,7 @@ const config: PlaywrightTestConfig = {
   projects: [
     {
       name: `api-${ENV}`,
-      testMatch: /.*\.api\.spec\.ts/,
+      testMatch: /.*\.spec\.ts/,
       retries: 1,
     },
     {
